@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Login - Pizzaria dos Maxes</title>
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background: linear-gradient(135deg, #c62828, #8e0000);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .login-card {
+      background: white;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      width: 320px;
+      text-align: center;
+      animation: fadeIn 0.6s ease;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(10px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    h2 {
+      color: #c62828;
+      margin-bottom: 10px;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 15px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      background: #c62828;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    button:hover {
+      background: #a81414;
+    }
+
+    small {
+      display: block;
+      margin-top: 12px;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-card">
+    <h2>Bem-vindo à Pizzaria</h2>
+    <p>Entre para acessar o cardápio 🍕</p>
+    <form id="loginForm">
+      <input type="email" id="email" placeholder="Email" required>
+      <input type="password" id="senha" placeholder="Senha" required>
+      <button type="submit">Entrar</button>
+      <small>Use: cliente@teste.com / 1234</small>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const email = document.getElementById("email").value;
+      const senha = document.getElementById("senha").value;
+
+      if (email === "pizzariadosmaxes@gmail.com" && senha === "maxes") {
+        const cliente = { nome: "Pizzaria Maxes", email: email };
+        localStorage.setItem("cliente", JSON.stringify(cliente));
+        window.location.href = "cliente.html";
+      } else {
+        alert("Login inválido! Use  pizzariadosmaxes@gmail.com / maxes");
+      }
+    });
+  </script>
+</body>
+</html>

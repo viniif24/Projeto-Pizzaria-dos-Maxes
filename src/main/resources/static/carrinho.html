@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Carrinho - Pizzaria dos Maxes</title>
+  <style>
+    body{
+      font-family: Arial;
+      margin:0;
+      background:#fafafa;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+    body.loaded{ opacity: 1; }
+
+    header{
+      background:#c62828;
+      color:white;
+      padding:14px;
+      font-size:20px;
+      font-weight:bold;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    main{
+      padding:20px;
+      max-width:550px;
+      margin:0 auto;
+    }
+
+    .item{
+      background:white;
+      padding:12px;
+      border-radius:8px;
+      margin-bottom:12px;
+      box-shadow:0 2px 6px rgba(0,0,0,0.12);
+      display:flex;
+      justify-content:space-between;
+      font-size:18px;
+    }
+
+    .total{
+      font-size:22px;
+      font-weight:bold;
+      margin-top:24px;
+      text-align:right;
+    }
+
+    button{
+      margin-top:20px;
+      width:100%;
+      padding:14px;
+      font-size:18px;
+      border:none;
+      border-radius:8px;
+      background:#c62828;
+      color:white;
+      cursor:pointer;
+      font-weight:bold;
+    }
+
+    button:hover{
+      background:#a31414;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    const cliente = JSON.parse(localStorage.getItem("cliente"));
+    if (!cliente) {
+      window.location.href = "loginCliente.html";
+    }
+
+    window.addEventListener("load", () => document.body.classList.add("loaded"));
+  </script>
+
+  <header>
+    <span>Carrinho - Pizzaria dos Maxes</span>
+    <a href="#" onclick="logout()" style="color:white; text-decoration:none;">Sair</a>
+  </header>
+
+  <main>
+    <div id="lista"></div>
+    <div id="total" class="total"></div>
+    <button onclick="finalizar()">Finalizar Pedido</button>
+  </main>
+
+  <script>
+    let c = JSON.parse(localStorage.getItem("carrinho")||"[]");
+
+    function render(){
+      let html = "";
+      let soma = 0;
+
+      if(c.length === 0){
+        document.getElementById("lista").innerHTML = "<p>Seu carrinho está vazio 😕</p>";
+        document.getElementById("total").innerText = "";
+        return;
+      }
+
+      c.forEach(i=>{
+        html += `<div class="item"><span>${i.nome}</span><span>R$ ${i.preco.toFixed(2)}</span></div>`;
+        soma += i.preco;
+      });
+
+      document.getElementById("lista").innerHTML = html;
+      document.getElementById("total").innerText = "Total: R$ " + soma.toFixed(2);
+    }
+
+    function finalizar(){
+      if (c.length === 0) {
+        alert("Seu carrinho está vazio!");
+        return;
+      }
+      localStorage.removeItem("carrinho");
+      alert("Pedido Realizado com sucesso! 🍕");
+      window.location = "cliente.html";
+    }
+
+    function logout(){
+      localStorage.removeItem("cliente");
+      localStorage.removeItem("carrinho");
+      window.location.href = "loginCliente.html";
+    }
+
+    render();
+  </script>
+</body>
+</html>

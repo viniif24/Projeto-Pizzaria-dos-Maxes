@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Área Atendente</title></head>
+<body>
+  <h2>Área Atendente (exemplo)</h2>
+  <p>Visualizar pedidos: GET /api/pedidos</p>
+  <pre id="output"></pre>
+  <script>
+    async function load() {
+      const res = await fetch('/api/pedidos');
+      const data = await res.json();
+      document.getElementById('output').textContent = JSON.stringify(data, null, 2);
+    }
+    load();
+  </script>
+  <p><a href="/">Voltar</a></p>
+</body>
+</html>

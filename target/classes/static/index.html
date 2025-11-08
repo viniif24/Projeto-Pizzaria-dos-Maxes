@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pizzaria dos Maxes - Home</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Segoe UI", Roboto, Arial, sans-serif;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Capa com imagem */
+    .hero {
+      height: 100vh;
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+        url('70300932-34c2-4032-bb40-130afcf03b12.png') center/cover no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      animation: zoomEffect 25s ease-in-out infinite alternate;
+    }
+
+    @keyframes zoomEffect {
+      from { background-size: 100% auto; }
+      to { background-size: 110% auto; }
+    }
+
+    .overlay {
+      position: relative;
+      z-index: 2;
+      text-shadow: 0 3px 8px rgba(0,0,0,0.7);
+    }
+
+    .hero h1 {
+      font-size: 60px;
+      font-weight: 900;
+      text-transform: uppercase;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      font-size: 20px;
+      color: #fff5f5;
+      margin-bottom: 32px;
+    }
+
+    .menu-links {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .menu-links a {
+      text-decoration: none;
+      background: #c62828;
+      padding: 14px 28px;
+      border-radius: 8px;
+      color: white;
+      font-weight: bold;
+      transition: background 0.2s ease, transform 0.2s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    .menu-links a:hover {
+      background: #e53935;
+      transform: translateY(-4px);
+    }
+
+    .contact-info {
+      position: absolute;
+      bottom: 30px;
+      text-align: center;
+      z-index: 3;
+      color: #fff;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    footer {
+      background: #111;
+      color: #bbb;
+      text-align: center;
+      padding: 18px;
+      font-size: 14px;
+    }
+
+    @media (max-width:600px){
+      .hero h1 { font-size: 36px; }
+      .hero p { font-size: 16px; }
+      .menu-links a { padding: 12px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <div class="overlay">
+      <h1>Pizzaria dos Maxes</h1>
+      <p>Sabor que conquista — do forno à sua mesa!</p>
+      <div class="menu-links">
+        <a href="/loginCliente.html">Login Cliente</a>
+        <a href="/loginAtendente.html">Login Atendente</a>
+        <a href="/cliente.html">Entrar no Cardápio 🍕</a>
+        <a href="/atendente.html">Área do Atendente</a>
+      </div>
+    </div>
+
+    <div class="contact-info">
+      📞 (84) 99101-2172 • pizzariadosmaxes.com.br
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Pizzaria dos Maxes • Todos os direitos reservados
+  </footer>
+
+</body>
+</html>
