@@ -15,20 +15,19 @@
     /* Capa com imagem */
     .hero {
       height: 100vh;
+      width: 100vw;
       background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
-        url('70300932-34c2-4032-bb40-130afcf03b12.png') center/cover no-repeat;
+        url('https://i.imgur.com/e2HoS3A.jpeg') center center no-repeat;
+      background-size: contain;
+      background-color: rgb(255, 0, 0); /* ou outra cor que combine */
+      background-position: center;
+      background-repeat: no-repeat;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
       position: relative;
-      animation: zoomEffect 25s ease-in-out infinite alternate;
-    }
-
-    @keyframes zoomEffect {
-      from { background-size: 100% auto; }
-      to { background-size: 110% auto; }
     }
 
     .overlay {
@@ -103,8 +102,6 @@
 
   <section class="hero">
     <div class="overlay">
-      <h1>Pizzaria dos Maxes</h1>
-      <p>Sabor que conquista — do forno à sua mesa!</p>
       <div class="menu-links">
         <a href="/loginCliente.html">Login Cliente</a>
         <a href="/loginAtendente.html">Login Atendente</a>
