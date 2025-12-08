@@ -1,0 +1,32 @@
+CREATE TABLE usuario (
+    id SERIAL PRIMARY KEY,
+    nome VARCHAR(255),
+    email VARCHAR(255) UNIQUE NOT NULL, -- Assumindo que o email é obrigatório e único para login
+    senha VARCHAR(255) NOT NULL,
+    endereco VARCHAR(255),
+    telefone VARCHAR(20),
+    cargo VARCHAR(50) -- Ex: 'cliente' ou 'atendente'
+);
+
+CREATE TABLE estoque (
+    id SERIAL PRIMARY KEY,
+    quantidade INTEGER NOT NULL,
+    valor NUMERIC(10, 2), -- Valor unitário do produto em estoque (ex: R$ por kg de farinha)
+    nome_produto VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE pedido (
+    id SERIAL PRIMARY KEY,
+    descricao TEXT, -- Pode conter todos os itens e detalhes do pedido
+    valor NUMERIC(10, 2) NOT NULL, -- Valor total do pedido
+    status VARCHAR(50) NOT NULL,
+    
+    -- Coluna da Chave Estrangeira
+    cliente_id INTEGER NOT NULL,
+
+    -- Definição da Chave Estrangeira (FK)
+    CONSTRAINT fk_pedido_cliente
+        FOREIGN KEY (cliente_id)
+        REFERENCES usuario (id)
+        ON DELETE RESTRICT -- Evita deletar um usuário que possui pedidos
+);
