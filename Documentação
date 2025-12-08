@@ -1,30 +1,6 @@
-Requisitos do Sistema: 
 
 
-1. Requisitos Funcionais (RF)
-A. Módulo de Usuários
-•	RF1: O sistema deve gerenciar completamente o ciclo de vida (CRUD) dos registros de usuários.
-•	RF2: O sistema deve permitir a busca detalhada de usuários pelo seu identificador único.
-B. Módulo de Pedidos
-•	RF3: O sistema deve gerenciar completamente o ciclo de vida (CRUD) dos pedidos.
-•	RF4: O sistema deve permitir a visualização de todos os pedidos registrados.
-C. Módulo de Estoque
-•	RF5: O sistema deve permitir a manutenção dos registros de itens em estoque (adição e atualização).
-•	RF6: O sistema deve permitir a consulta do inventário completo do estoque.
-
-2. Regras de Negócio (RN)
-•	RN1: Um pedido deve sempre estar associado a um usuário existente, estabelecendo um link de cliente.
-•	RN2: O sistema deve validar as credenciais de login (e-mail e senha) para conceder acesso.
-•	RN3: O atributo cargo (e.g., 'cliente' vs. 'atendente') deve ser usado para determinar o conjunto de funcionalidades acessíveis ao usuário.
-•	RN4: O e-mail do usuário deve ser um identificador único e exclusivo no sistema.
-3. Requisitos Não Funcionais (RNF)
-•	RNF1: A plataforma de desenvolvimento será Java/Spring Boot, com Spring Data JPA como tecnologia de acesso a dados.
-
-•	RNF2: O banco de dados a ser utilizado para o cadastramento de dados será o PostgreSQL, pois foi o que usamos nas aulas
-
------------------Diagrama de casos de Uso----------------------
 
 
-C:\Users\Acer\OneDrive\Imagens\Captura de tela 2025-05-07 224253.png
 
 
